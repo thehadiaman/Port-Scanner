@@ -3,13 +3,22 @@
 ######################################################
 from socket import *
 from time import *
+from pyfiglet import *
+import os
 ######################################################
+os.system('reset')
+result = figlet_format("PORT SCANNER")
+print(result)
 
 ######################################################
 # ENTER TARGET IP
 ######################################################
 target = input('Enter the host to be scanned: ')
-targetIP = gethostbyname(target)
+try:
+    targetIP = gethostbyname(target)
+except:
+    print('ERROR')
+    exit()
 ######################################################
 
 ######################################################
@@ -20,11 +29,11 @@ port = input('Enter the range to be scanned (Eg: 1-10): ')
 portF = int(port.split('-')[0])
 portS = int(port.split('-')[1])
 if portF > 65535:
-    print("the total number of ports are 65535 can't use greater values")
+    print("the total number of ports are 65535 can't use greater values and less than 1")
     print('Setting default starting port (1)')
     portF = 1
 if portS > 65535:
-    print("the total number of ports are 65535 can't use greater values")
+    print("the total number of ports are 65535 can't use greater values and less than 1")
     print('Setting default final port (65535)')
     portS = 65535
 ######################################################
