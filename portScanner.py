@@ -22,7 +22,7 @@ portS = int(port.split('-')[1])
 if portF > 65535:
     print("the total number of ports are 65535 can't use greater values")
     print('Setting default starting port (1)')
-    portS = 1
+    portF = 1
 if portS > 65535:
     print("the total number of ports are 65535 can't use greater values")
     print('Setting default final port (65535)')
@@ -49,3 +49,4 @@ for i in range(portF, portS+1):
         s.close()
 
 print('Time taken:', time() - tStart)  # TOTAL TIME TO GET SCANNED
+
