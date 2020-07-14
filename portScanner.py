@@ -28,11 +28,11 @@ port = input('Enter the range to be scanned (Eg: 1-10): ')
 
 portF = int(port.split('-')[0])
 portS = int(port.split('-')[1])
-if portF > 65535:
+if portF > 65535 or portF < 0:
     print("the total number of ports are 65535 can't use greater values and less than 1")
     print('Setting default starting port (1)')
     portF = 1
-if portS > 65535:
+if portS > 65535 or portS < 0:
     print("the total number of ports are 65535 can't use greater values and less than 1")
     print('Setting default final port (65535)')
     portS = 65535
